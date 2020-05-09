@@ -3,3 +3,4 @@ This is a tutorial for UTokyo Project Sprint.
 
 しりとり
 リス
+スイカ
