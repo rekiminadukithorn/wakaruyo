@@ -11,10 +11,17 @@
         <form method="post" action="">
             {% csrf_token %}
             <div class="field">
-                <label class="label">ユーザーネーム</label>
+                <label class="label">メールアドレス</label>
                 <div class="control has-icons-left">
-                    {{ form.username }}
-                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                    {{ form.email }}
+                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Twitter</label>
+                <div class="control has-icons-left">
+                    {{ form.twitter }}
+                    <span class="icon is-small is-left"><i class="fab fa-twitter"></i></span>
                 </div>
             </div>
             <div class="field">
@@ -45,6 +52,10 @@
                 </p>
             </div>
         </form>
+        <hr>
+        <a href="{% url 'cms:user_delete' user.pk %}">
+            <button class="button is-danger is-outlined">削除</button>
+        </a>
     </div>
 </section>
 {% endblock %}
