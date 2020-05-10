@@ -25,7 +25,7 @@ SECRET_KEY = 'q8sob8i554o&4*+q-_95pqj=59dca!y!)302)!q+1s2z5u@tw0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.99.100']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cms.apps.CmsConfig', #Added
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Custom
+AUTH_USER_MODEL = 'cms.User'
+LOGIN_URL = 'cms:login'
+LOGIN_REDIRECT_URL = 'cms:top'
+LOGOUT_REDIRECT_URL = 'cms:top'
