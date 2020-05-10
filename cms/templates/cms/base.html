@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Django Sprint</title>
+    <title>{% block title %}{% endblock %}Django Sprint</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -38,27 +40,9 @@
     <div></div>
     <!-- MAIN -->
     <main>
-        <section class="hero is-medium is-info is-bold">
-            <div class="hero-body">
-                <div class="container">
-                    <h1 class="title">Title</h1>
-                    <h2 class="subtitle">Subtitle</h2>
-                    <a href="#">
-                        <button class="button is-info is-inverted is-outlined">
-                            <strong>More Info</strong>
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section class="section is-medium">
-            <div class="container">
-                <div class="has-text-centered">
-                    <h1 class="title">Section</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-        </section>
+        {% block hero %}{% endblock %}
+        {% block tab %}{% endblock %}
+        {% block content %}{% endblock %}
     </main>
     <!-- FOOTER -->
     <footer class="footer">
@@ -85,37 +69,7 @@
                 menu.classList.toggle('is-active');
             });
         }
+        {% block extrajs %}{% endblock %}
     </script>
 </body>
 </html>
-
-{% extends 'cms/base.html' %}
-
-{% block title %}Home | {% endblock %}
-
-{% block hero %}
-<section class="hero is-medium is-info is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">Title</h1>
-            <h2 class="subtitle">Subtitle</h2>
-            <a href="#">
-                <button class="button is-info is-inverted is-outlined">
-                    <strong>More Info</strong>
-                </button>
-            </a>
-        </div>
-    </div>
-</section>
-{% endblock %}
-
-{% block content %}
-<section class="section is-medium">
-    <div class="container">
-        <div class="has-text-centered">
-            <h1 class="title">Section</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-    </div>
-</section>
-{% endblock %}
