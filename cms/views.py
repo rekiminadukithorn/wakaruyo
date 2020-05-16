@@ -73,3 +73,12 @@ class UserDelete(OnlyYouMixin, DeleteView):
     model = UserModel
     template_name = 'cms/user_delete.html'
     success_url = reverse_lazy('cms:top')
+
+
+class TodoUpdate(OnlyYouMixin, UpdateView):
+    model = UserModel
+    form_class = UserUpdateForm #これは変える？
+    template_name = 'cms/todo_update.html'
+
+    def get_success_url(self):
+        return resolve_url('cms:user_detail', pk=self.kwargs['pk'])

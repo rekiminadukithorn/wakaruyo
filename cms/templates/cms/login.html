@@ -29,7 +29,7 @@
             <div class="field">
                 <p class="control">
                     <input type="submit" value="ログイン" class="button is-success">
-                    <input type="hidden" name="next" value="{{ next }}" >
+                    <input type="hidden" name="next" value="{{ next }}" > <!--恐らく、nextとすると、config/settings.pyのLOGIN_REDIRECT_URLで指定した先に飛ばされるようになる-->
                 </p>
             </div>
         </form>

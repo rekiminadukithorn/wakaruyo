@@ -10,7 +10,7 @@
         <hr>
         <p class="help">アカウントをお持ちの方へ：ログインは<a href="{% url 'cms:login' %}">こちら</a></p>
         <br>
-        <form method="post" action="">
+        <form method="post" action=""> <!--actionをかけばそこに送られるけど、DBに送るから必要ない感じかなと思ってる-->
             {% csrf_token %}
             <div class="field">
                 <label class="label">ユーザーネーム</label>

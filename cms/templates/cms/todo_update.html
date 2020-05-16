@@ -1,0 +1,33 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}{{ user.username }} | {% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container is-mobile">
+        <h1 class="title is-4">ToDoの更新</h1>
+        <h2 class="subtitle is-6">Update your ToDo</h2>
+        <hr>
+        <form method="post" action=""> <!--actionをかけばそこに送られるけど、DBに送るから必要ない感じかなと思ってる-->
+            {% csrf_token %} <!--消すとセキュリティ的に怖いやつ-->
+            <div class="field">
+                <label class="label">ユーザーネーム</label>
+                <div class="control has-icons-left">
+                    {{ form.username }} <!--これをどう変えれば良いのかわからん-->
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </div>
+            
+                <p class="control"> 
+                <input type="submit" value="保存" class="button is-success">
+                <input type="hidden" name="next" value="{{ next }}" >
+                </p>
+                
+            </div>
+        </form>
+        <hr>
+        <a href="{% url 'cms:user_delete' user.pk %}">
+            <button class="button is-danger is-outlined">削除</button>
+        </a>
+    </div>
+</section>
+{% endblock %}
