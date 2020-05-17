@@ -32,15 +32,3 @@ class LoginForm(AuthenticationForm):
        super().__init__(*args, **kwargs)
        self.fields['username'].widget.attrs['class'] = 'input'
        self.fields['password'].widget.attrs['class'] = 'input'
-
-
-#UserUpdateFormをパクった
-class TodoUpdateForm(forms.ModelForm):
-    class Meta:
-        model = UserModel
-        fields = ('todo',)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs['class'] = 'input'
