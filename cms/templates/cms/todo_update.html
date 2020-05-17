@@ -11,10 +11,11 @@
         <form method="post" action=""> <!--actionをかけばそこに送られるけど、DBに送るから必要ない感じかなと思ってる-->
             {% csrf_token %} <!--消すとセキュリティ的に怖いやつ-->
             <div class="field">
-                <label class="label">ユーザーネーム</label>
+                <label class="label">ToDo</label>
                 <div class="control has-icons-left">
-                    {{ form.username }} <!--これをどう変えれば良いのかわからん-->
-                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                    <!--{{ form.todo }} todo用のフォーム  ※何故かこれだと上手くいかない
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span> -->
+                    <input type="text" name="todo" value=""> 
                 </div>
 
                 <p class="control">
