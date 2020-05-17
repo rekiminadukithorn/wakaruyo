@@ -121,23 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-
-=======
 
 # Custom
-
 AUTH_USER_MODEL = 'cms.User' ##この行の意味はわからない
 LOGIN_URL = 'cms:login' #この行の意味はわからない
 LOGIN_REDIRECT_URL = 'cms:top' #loginした後にどこに飛ばされるか

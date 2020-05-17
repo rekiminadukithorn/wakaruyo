@@ -20,22 +20,14 @@
                         {{ user.username }}
                     </h2>
                     {% if user.pk == request.user.pk %}
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <a href="{% url 'cms:user_update' user.pk %}"> <!--各user用のページへ-->
-=======
                     <a href="{% url 'cms:user_update' user.pk %}">
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
-=======
                     <a href="{% url 'cms:user_update' user.pk %}">
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
                         <button class="button is-small is-info is-inverted is-outlined">
                             <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
                             <strong>プロフィールを追加する</strong>
                         </button>
                     </a>
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <a href="{% url 'cms:todo_update' user.pk %}"> <!--各user用のページへ-->
                         <button class="button is-small is-info is-inverted is-outlined">
                             <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
@@ -49,10 +41,6 @@
                     <h3 class="subtitle">
                         {{ user.todo }}
                     </h3>
-=======
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
-=======
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
                     {% endif %}
                 </div>
             </div>
@@ -79,12 +67,6 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
     </div>
 </section>
-<<<<<<< HEAD
-<<<<<<< HEAD
 {% endblock %}
-=======
 {% endblock %}
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
-=======
 {% endblock %}
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
