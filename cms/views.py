@@ -9,6 +9,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView,
 )
+<<<<<<< HEAD
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
@@ -17,6 +18,18 @@ from .forms import (
     LoginForm, UserCreateForm, UserUpdateForm, TodoUpdateForm,
 )
 
+=======
+
+from .mixins import OnlyYouMixin
+from .forms import (
+    LoginForm, UserCreateForm, UserUpdateForm,
+)
+
+from django.views.generic.detail import DetailView
+
+from django.views.generic.list import ListView
+
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 UserModel = get_user_model()
 
 
@@ -28,11 +41,17 @@ class Login(LoginView):
     form_class = LoginForm
     template_name = 'cms/login.html'
 
+<<<<<<< HEAD
 
 class Logout(LogoutView):
     pass
 
 
+=======
+class Logout(LogoutView):
+    pass
+
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserCreate(CreateView):
     form_class = UserCreateForm
     template_name = 'cms/signup.html'
@@ -44,7 +63,10 @@ class UserCreate(CreateView):
         self.object = user
         return HttpResponseRedirect(self.get_success_url())
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserUpdate(OnlyYouMixin, UpdateView):
     model = UserModel
     form_class = UserUpdateForm
@@ -53,7 +75,10 @@ class UserUpdate(OnlyYouMixin, UpdateView):
     def get_success_url(self):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserDetail(DetailView):
     model = UserModel
     template_name = 'cms/user_detail.html'
@@ -63,11 +88,15 @@ class UserDetail(DetailView):
         context['pk'] = self.kwargs['pk']
         return context
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserList(ListView):
     model = UserModel
     template_name = 'cms/user_list.html'
 
+<<<<<<< HEAD
 
 class UserDelete(OnlyYouMixin, DeleteView):
     model = UserModel
@@ -82,3 +111,9 @@ class TodoUpdate(OnlyYouMixin, UpdateView):
 
     def get_success_url(self):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
+=======
+class UserDelete(OnlyYouMixin, DeleteView):
+    model = UserModel
+    template_name = 'cms/user_delete.html'
+    success_url = reverse_lazy('cms:top')
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb

@@ -80,9 +80,12 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
+<<<<<<< HEAD
     #todoも加える
     todo = models.CharField(_('Todo'), max_length=50, blank=True)
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
     objects = UserManager()
 
     EMAIL_FIELD = 'email'
