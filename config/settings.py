@@ -121,7 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 © 2020 GitHub, Inc.
 Terms
 Privacy
@@ -138,32 +137,8 @@ About
 =======
 
 # Custom
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-AUTH_USER_MODEL = 'cms.User'
-<<<<<<< HEAD
->>>>>>> 2473572422d1b20a1942340602076ac252d1eef1
-=======
-LOGIN_URL = 'cms:login'
-LOGIN_REDIRECT_URL = 'cms:top'
-LOGOUT_REDIRECT_URL = 'cms:top'
->>>>>>> ce078d937e0f138765e1eb296362e8b9ddfa476f
-=======
+
 AUTH_USER_MODEL = 'cms.User' ##この行の意味はわからない
 LOGIN_URL = 'cms:login' #この行の意味はわからない
 LOGIN_REDIRECT_URL = 'cms:top' #loginした後にどこに飛ばされるか
 LOGOUT_REDIRECT_URL = 'cms:top' #logoutした後どこに飛ばされるか
->>>>>>> 1d277496fd60276b98bb11f244270e52bd124b53
-=======
-AUTH_USER_MODEL = 'cms.User'
-LOGIN_URL = 'cms:login'
-LOGIN_REDIRECT_URL = 'cms:top'
-LOGOUT_REDIRECT_URL = 'cms:top'
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
-=======
-AUTH_USER_MODEL = 'cms.User'
-LOGIN_URL = 'cms:login'
-LOGIN_REDIRECT_URL = 'cms:top'
-LOGOUT_REDIRECT_URL = 'cms:top'
->>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
