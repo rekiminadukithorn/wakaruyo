@@ -13,5 +13,5 @@ urlpatterns = [
     path('user/<int:pk>/', views.UserDetail.as_view(), name='user_detail'),
     path('user/', views.UserList.as_view(), name='user_list'),
     path('user/<int:pk>/delete/', views.UserDelete.as_view(), name='user_delete'),
-    path('user/<int:pk>/todo_update/', views.UserUpdate.as_view(), name='todo_update'), #user_updateをパクった
+    path('user/<int:pk>/todo_update/', views.TodoUpdate.as_view(), name='todo_update'), #user_updateをパクった
 ]
