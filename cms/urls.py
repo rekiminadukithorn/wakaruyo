@@ -14,7 +14,10 @@ urlpatterns = [
     path('user/', views.UserList.as_view(), name='user_list'),
     path('user/<int:pk>/delete/', views.UserDelete.as_view(), name='user_delete'),
 <<<<<<< HEAD
+<<<<<<< HEAD
     path('user/<int:pk>/todo_update/', views.TodoUpdate.as_view(), name='todo_update'), #user_updateをパクった
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 =======
 >>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 ]

@@ -10,6 +10,7 @@ from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView,
 )
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
@@ -22,6 +23,11 @@ from .forms import (
 
 from .mixins import OnlyYouMixin
 from .forms import (
+=======
+
+from .mixins import OnlyYouMixin
+from .forms import (
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
     LoginForm, UserCreateForm, UserUpdateForm,
 )
 
@@ -29,6 +35,9 @@ from django.views.generic.detail import DetailView
 
 from django.views.generic.list import ListView
 
+<<<<<<< HEAD
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
+=======
 >>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 UserModel = get_user_model()
 
@@ -42,11 +51,17 @@ class Login(LoginView):
     template_name = 'cms/login.html'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 class Logout(LogoutView):
     pass
 
 
+=======
+class Logout(LogoutView):
+    pass
+
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 =======
 class Logout(LogoutView):
     pass
@@ -64,7 +79,10 @@ class UserCreate(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 =======
 >>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserUpdate(OnlyYouMixin, UpdateView):
@@ -76,7 +94,10 @@ class UserUpdate(OnlyYouMixin, UpdateView):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 =======
 >>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserDetail(DetailView):
@@ -89,13 +110,17 @@ class UserDetail(DetailView):
         return context
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 =======
 >>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 class UserList(ListView):
     model = UserModel
     template_name = 'cms/user_list.html'
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 class UserDelete(OnlyYouMixin, DeleteView):
@@ -111,6 +136,12 @@ class TodoUpdate(OnlyYouMixin, UpdateView):
 
     def get_success_url(self):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
+=======
+class UserDelete(OnlyYouMixin, DeleteView):
+    model = UserModel
+    template_name = 'cms/user_delete.html'
+    success_url = reverse_lazy('cms:top')
+>>>>>>> d891c40e96f881be5f33d49dd208f6eb01df42fb
 =======
 class UserDelete(OnlyYouMixin, DeleteView):
     model = UserModel
