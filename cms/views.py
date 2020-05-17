@@ -14,7 +14,7 @@ from django.views.generic.list import ListView
 
 from .mixins import OnlyYouMixin
 from .forms import (
-    LoginForm, UserCreateForm, UserUpdateForm,
+    LoginForm, UserCreateForm, UserUpdateForm, TodoUpdateForm,
 )
 
 UserModel = get_user_model()
@@ -73,3 +73,12 @@ class UserDelete(OnlyYouMixin, DeleteView):
     model = UserModel
     template_name = 'cms/user_delete.html'
     success_url = reverse_lazy('cms:top')
+
+
+class TodoUpdate(OnlyYouMixin, UpdateView):
+    model = UserModel
+    form_class = TodoUpdateForm #これは変える？
+    template_name = 'cms/todo_update.html'
+
+    def get_success_url(self):
+        return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
