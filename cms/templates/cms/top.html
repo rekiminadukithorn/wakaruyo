@@ -6,12 +6,12 @@
 <section class="hero is-medium is-info is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">Title</h1>
-            <h2 class="subtitle">Subtitle</h2>
+            <h1 class="title">"何もしない"をしない</h1>
+            <h2 class="subtitle">ToDoリストを登録してみよう！</h2>
             {% if user.is_authenticated %} <!--ログインしてる場合にしか表示されない-->
             <a href="{% url 'cms:user_detail' user.pk %}"> <!--これが 各userに対するやり方-->
                 <button class="button is-info is-inverted is-outlined">
-                    <strong>More Info</strong>
+                    <strong>ユーザー</strong>
                 </button>
             </a>
             {% endif %}
