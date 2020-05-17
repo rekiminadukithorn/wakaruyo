@@ -17,15 +17,6 @@ from .forms import (
     LoginForm, UserCreateForm, UserUpdateForm, TodoUpdateForm,
 )
 
-from .mixins import OnlyYouMixin
-from .forms import (
-from .mixins import OnlyYouMixin
-from .forms import (
-    LoginForm, UserCreateForm, UserUpdateForm,
-)
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-
 UserModel = get_user_model()
 
 
@@ -36,12 +27,6 @@ class TopView(TemplateView):
 class Login(LoginView):
     form_class = LoginForm
     template_name = 'cms/login.html'
-
-class Logout(LogoutView):
-    pass
-
-class Logout(LogoutView):
-    pass
 
 class Logout(LogoutView):
     pass
@@ -93,13 +78,3 @@ class TodoUpdate(OnlyYouMixin, UpdateView):
 
     def get_success_url(self):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
-
-class UserDelete(OnlyYouMixin, DeleteView):
-    model = UserModel
-    template_name = 'cms/user_delete.html'
-    success_url = reverse_lazy('cms:top')
-
-class UserDelete(OnlyYouMixin, DeleteView):
-    model = UserModel
-    template_name = 'cms/user_delete.html'
-    success_url = reverse_lazy('cms:top')
