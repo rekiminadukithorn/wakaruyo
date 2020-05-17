@@ -81,7 +81,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
     #todoも加える
-    todo = models.CharField(_('ToDo'), max_length=50, blank=True)
+    todo = models.CharField(_('Todo'), max_length=50, blank=True)
 
     objects = UserManager()
 
