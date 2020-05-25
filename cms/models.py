@@ -115,4 +115,4 @@ class User(AbstractUser):
 class Todo(models.Model):
     name=models.CharField(_('Todo'), max_length=50, blank=True)
     #is_done=models.BooleanField(_('Todo'), default=False)
-    owners=models.ManyToManyField(User,)   #on_deleteの引数を指定する。←マイグレーションできないので抜いてる
+    owners=models.ManyToManyField(User,)   #on_deleteの引数を指定する。on_delete=models.PROTECT←マイグレーションできないので抜いてる
