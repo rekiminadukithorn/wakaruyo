@@ -74,7 +74,7 @@ class UserDelete(OnlyYouMixin, DeleteView):
 
 
 class TodoUpdate(OnlyYouMixin, UpdateView):
-    model = UserModel
+    model = UserModel #コレTodoなのでは？←UserModelで合ってるみたい。Todoにしたらページ開けんくなった
     form_class = TodoUpdateForm #これは変える？
     template_name = 'cms/todo_update.html'
 

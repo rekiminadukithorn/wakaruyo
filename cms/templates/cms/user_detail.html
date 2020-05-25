@@ -21,17 +21,21 @@
                     </h2>
                     {% if user.pk == request.user.pk %}
                     <a href="{% url 'cms:user_update' user.pk %}"> <!--各user用のページへ-->
-                    <a href="{% url 'cms:user_update' user.pk %}">
-                    <a href="{% url 'cms:user_update' user.pk %}">
                         <button class="button is-small is-info is-inverted is-outlined">
                             <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
                             <strong>プロフィールを追加する</strong>
                         </button>
                     </a>
-                    <a href="{% url 'cms:todo_update' user.pk %}"> <!--各user用のページへ-->
+                    <a href="{% url 'cms:todo_update' user.pk %}"> <!--todo更新用のページへ-->
                         <button class="button is-small is-info is-inverted is-outlined">
                             <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
                             <strong>ToDoを追加する</strong>
+                        </button>
+                    </a>
+                    <a href="{% url 'cms:todo_create'  %}"> <!--todo作成用のページへ-->
+                        <button class="button is-small is-info is-inverted is-outlined">
+                            <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
+                            <strong>ToDoを作成する</strong>
                         </button>
                     </a>
                     {% endif %}

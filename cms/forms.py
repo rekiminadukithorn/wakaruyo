@@ -61,7 +61,8 @@ class TodoCreateForm(forms.ModelForm):
         model = Todo
         fields = ('name',)
 
+    #htmlファイルにレンダリングしている
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'input'
+            field.widget.attrs['class'] = 'input' #'input'を'textarea'などに変えることもできる

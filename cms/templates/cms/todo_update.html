@@ -13,9 +13,9 @@
             <div class="field">
                 <label class="label">ToDo</label>
                 <div class="control has-icons-left">
-                    <!--{{ form.todo }} todo用のフォーム  ※何故かこれだと上手くいかない
-                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span> -->
-                    <input type="text" name="todo" value=""> 
+                    {{ form.name }} <!--todo用のフォーム-->
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                    <!--<input type="text" name="todo" value=""> -->
                 </div>
 
                 <p class="control">
@@ -26,9 +26,10 @@
             </div>
         </form>
         <hr>
+        <!-- ユーザー削除ボタンなのでいらないはず
         <a href="{% url 'cms:user_delete' user.pk %}">
             <button class="button is-danger is-outlined">削除</button>
-        </a>
+        </a> -->
     </div>
 </section>
 {% endblock %}
