@@ -80,7 +80,11 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b6a7d18d04e8621bab54c44572e07b8f3ef0e739
 
     objects = UserManager()
 
@@ -115,5 +119,10 @@ class User(AbstractUser):
 class Todo(models.Model):
     name=models.CharField(_('Todo'), max_length=50, blank=True)
     is_done=models.BooleanField(_('Todo'), default=False)
+<<<<<<< HEAD
     owners=models.ManyToManyField(User, on_delete=)
     #on_deleteの引数を指定する。
+=======
+    owners=models.ManyToManyField(User,)
+    #on_deleteの引数を指定する。
+>>>>>>> b6a7d18d04e8621bab54c44572e07b8f3ef0e739

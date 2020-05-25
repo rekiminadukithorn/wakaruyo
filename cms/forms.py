@@ -48,8 +48,18 @@ class LoginForm(AuthenticationForm):
 #UserUpdateFormをパクった
 class TodoUpdateForm(forms.ModelForm):
     class Meta:
-        model = UserModel
-        fields = ('todo',)
+        model = Todo
+        fields = ('name',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'input'
+
+class TodoCreateForm(forms.ModelForm):
+    class Meta:
+        model = Todo
+        fields = ('name',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
