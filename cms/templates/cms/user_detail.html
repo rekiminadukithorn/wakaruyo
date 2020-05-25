@@ -39,7 +39,7 @@
                 <div class="media-right">
                     {% if user.pk == request.user.pk %}
                     <h3 class="subtitle">
-                        {{ user.todo }}
+                        {{ user.Todo.name }}<!--調べる-->
                     </h3>
                     {% endif %}
                 </div>
