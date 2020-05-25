@@ -82,6 +82,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     #todoも加える
     todo = models.CharField(_('Todo'), max_length=50, blank=True)
+    #要変更
 
     objects = UserManager()
 
