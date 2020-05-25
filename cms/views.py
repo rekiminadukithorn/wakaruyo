@@ -14,8 +14,10 @@ from django.views.generic.list import ListView
 
 from .mixins import OnlyYouMixin
 from .forms import (
-    LoginForm, UserCreateForm, UserUpdateForm, TodoUpdateForm,
+    LoginForm, UserCreateForm, UserUpdateForm, TodoUpdateForm, TodoCreateForm,
 )
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 UserModel = get_user_model()
 
@@ -78,3 +80,14 @@ class TodoUpdate(OnlyYouMixin, UpdateView):
 
     def get_success_url(self):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
+
+class TodoCreate(LoginRequiredMixin,CreateView):
+    form_class = TodoCreateForm
+    template_name = 'cms/todo_create.html'
+    success_url = reverse_lazy('cms:top')
+
+    def form_valid(self, form):
+        todo = form.save(commit=False)
+        todo.owners.add(self.request.user) 
+        todo.save()
+        return HttpResponseRedirect(self.get_success_url())
