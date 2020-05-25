@@ -80,8 +80,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
-    #todoも加える
-    todo = models.CharField(_('Todo'), max_length=50, blank=True)
+
 
     objects = UserManager()
 
@@ -109,3 +108,12 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 class User(AbstractUser):
     class Meta(AbstractUser.Meta):
         swappable = "AUTH_USER_MODEL"
+
+
+#todoも加える
+    #要変更
+class Todo(models.Model):
+    name=models.CharField(_('Todo'), max_length=50, blank=True)
+    is_done=models.BooleanField(_('Todo'), default=False)
+    owners=models.ManyToManyField(User, on_delete=)
+    #on_deleteの引数を指定する。

@@ -15,6 +15,13 @@
                 <div class="control has-icons-left">
                     {{ form.username }}
                     <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="field">
+                <label class="label">メールアドレス</label>
+                <div class="control has-icons-left">
+                    {{ form.email }}
+                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
                 </div>
             </div>
             <div class="field">
@@ -31,15 +38,7 @@
                     <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
                 </div>
             </div>
-            <div class="field">
-                <label class="label">メールアドレス</label>
-                <div class="control has-icons-left">
-                    {{ form.email }}
-                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                </div>
-            </div>
-            <div class="field">
-                
+            <div class="field">                
                 <p class="control"> <!--twitterより上で良いの？-->
                 <input type="submit" value="保存" class="button is-success">
                 <input type="hidden" name="next" value="{{ next }}" >
@@ -49,8 +48,7 @@
                 <div class="control has-icons-left">
                     {{ form.twitter }}
                     <span class="icon is-small is-left"><i class="fab fa-twitter"></i></span>
-                </div>
-            
+                </div>           
             </div>
         </form>
         <hr>
