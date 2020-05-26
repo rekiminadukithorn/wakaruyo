@@ -74,7 +74,7 @@ class UserDelete(OnlyYouMixin, DeleteView):
     success_url = reverse_lazy('cms:top')
 
 
-class TodoUpdate(OnlyYouMixin, UpdateView):
+class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo #コレTodoなのでは？←Todoにしたらページ開かなくなった←インポートを忘れてました
     form_class = TodoUpdateForm 
     template_name = 'cms/todo_update.html'
