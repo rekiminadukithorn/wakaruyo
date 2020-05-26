@@ -12,7 +12,6 @@
         <br>
         <form method="post" action=""> <!--actionをかけばそこに送られるけど、DBに送るから必要ない感じかなと思ってる-->
             {% csrf_token %}
-            {% if user.is_authenticated %}
             <div class="field">
                 <label class="label">Todo</label>
                 <div class="control has-icons-left">
@@ -20,7 +19,6 @@
                     <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
                 </div>
             </div>
-            {% endif %}
             <div class="field">
                 <p class="control">
                     <input type="submit" value="作成" class="button is-success">

@@ -18,6 +18,7 @@ from .forms import (
 )
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Todo
 
 UserModel = get_user_model()
 
@@ -74,8 +75,8 @@ class UserDelete(OnlyYouMixin, DeleteView):
 
 
 class TodoUpdate(OnlyYouMixin, UpdateView):
-    model = UserModel #コレTodoなのでは？←UserModelで合ってるみたい。Todoにしたらページ開けんくなった
-    form_class = TodoUpdateForm #これは変える？
+    model = Todo #コレTodoなのでは？←Todoにしたらページ開かなくなった←インポートを忘れてました
+    form_class = TodoUpdateForm 
     template_name = 'cms/todo_update.html'
 
     def get_success_url(self):
