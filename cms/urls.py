@@ -14,10 +14,6 @@ urlpatterns = [
     path('user/', views.UserList.as_view(), name='user_list'),
     path('user/<int:pk>/delete/', views.UserDelete.as_view(), name='user_delete'),
     #path('user/<int:pk>/todo_update/', views.TodoUpdate.as_view(), name='todo_update'), #user_updateをパクった
-<<<<<<< HEAD
-    #path('todo/<int:pk>/update/', views.TodoUpdate.as_view(), name='todo_update'), #user_updateをパクった
-=======
     path('todo/<int:pk>/update/', views.TodoUpdate.as_view(), name='todo_update'), #user_updateをパクった
->>>>>>> b6a7d18d04e8621bab54c44572e07b8f3ef0e739
     path('todo/create/', views.TodoCreate.as_view(), name='todo_create'), 
 ]
