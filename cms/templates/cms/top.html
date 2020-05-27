@@ -14,6 +14,11 @@
                     <strong>マイページ</strong>
                 </button>
             </a>
+            <a href="{% url 'cms:todo_create' %}"> <!--これが 各userに対するやり方-->
+                <button class="button is-info is-inverted is-outlined">
+                    <strong>Todo作成ページへ</strong>
+                </button>
+            </a>
             {% endif %}
         </div>
     </div>

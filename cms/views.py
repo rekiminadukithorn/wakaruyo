@@ -4,7 +4,9 @@ from django.contrib.auth.views import (
 )
 from django.http import HttpResponseRedirect
 from django.shortcuts import resolve_url
-from django.urls import reverse_lazy
+from django.urls import (
+    reverse_lazy, reverse
+)
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView,
@@ -18,6 +20,7 @@ from .forms import (
 )
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Todo
 
 UserModel = get_user_model()
 
@@ -73,9 +76,9 @@ class UserDelete(OnlyYouMixin, DeleteView):
     success_url = reverse_lazy('cms:top')
 
 
-class TodoUpdate(OnlyYouMixin, UpdateView):
-    model = UserModel
-    form_class = TodoUpdateForm #これは変える？
+class TodoUpdate(LoginRequiredMixin, UpdateView):
+    model = Todo #コレTodoなのでは？←Todoにしたらページ開かなくなった←インポートを忘れてました
+    form_class = TodoUpdateForm
     template_name = 'cms/todo_update.html'
 
     def get_success_url(self):
@@ -88,6 +91,7 @@ class TodoCreate(LoginRequiredMixin,CreateView):
 
     def form_valid(self, form):
         todo = form.save(commit=False)
-        todo.owners.add(self.request.user) 
+        #todo.owners.add(self.request.user)
         todo.save()
-        return HttpResponseRedirect(self.get_success_url())
+        #return HttpResponseRedirect(self.get_success_url()) #エラー出る
+        return HttpResponseRedirect(reverse('cms:top')) #エラー出ない
