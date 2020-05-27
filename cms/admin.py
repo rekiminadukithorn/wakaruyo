@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from .models import (
-    User, 
+    User, Todo,
 )
 
 
@@ -34,6 +34,18 @@ class UserCreationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class TodoCreationForm(forms.ModelForm):
+
+    class Meta:
+        model = Todo
+        fields = ('name',)
+
+    def save(self, commit=True):
+        # Save the provided password in hashed format
+        todo = super().save(commit=False)
+        todo.save()
+        return todo
 
 
 class UserChangeForm(forms.ModelForm):
@@ -87,3 +99,4 @@ admin.site.register(User, UserAdmin)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)
+admin.site.register(Todo,)
