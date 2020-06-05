@@ -20,6 +20,7 @@ from .forms import (
 )
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count
 from .models import Todo
 
 UserModel = get_user_model()
@@ -93,5 +94,32 @@ class TodoCreate(LoginRequiredMixin,CreateView):
         todo = form.save(commit=False)
         #todo.owners.add(self.request.user)
         todo.save()
+        user = self.request.user
+        user.todos.add(todo)
         #return HttpResponseRedirect(self.get_success_url()) #エラー出る
         return HttpResponseRedirect(reverse('cms:top')) #エラー出ない
+
+
+class TodoList(ListView):
+    model = Todo
+    context_object_name = "todo_list"  # この行で変数名を指定(html内でobject_listを"todo_list"って書けるようになるだけ。)
+    template_name = 'cms/todo_list.html'
+    #paginate_by = 10   #1ページに表示する個数を制限できる
+
+    def get_queryset(self):
+        return Todo.objects.all().annotate(Count('user')).order_by('-user__count')  # ユーザー多い順に表示
+
+    #def get_context_data(self, **kwargs):
+    #    context = super().get_context_data(**kwargs)
+    #    context['bar'] = Todo.objects.all().annotate(Count('user')).order_by('-user__count')  # 他のモデルからデータを取得
+    #    return context
+
+
+class TodoAdd(LoginRequiredMixin, TemplateView):
+    template_name = 'cms/todo_add.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # いろいろやる
+        # ToDo listで選んだToDoをそのUserのtodosに加えたい。
+        return context

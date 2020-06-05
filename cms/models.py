@@ -9,6 +9,17 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
+#todoも加える
+    #上に移してみた。
+class Todo(models.Model):
+    name=models.CharField(_('Todo'), max_length=50, blank=True)
+    #is_done=models.BooleanField(_('Todo'), default=False)
+    #owners=models.ManyToManyField(User, )   #on_deleteの引数を指定する。on_delete=models.PROTECT
+
+    def __str__(self):
+        return self.name
+
+
 # User-related
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -80,6 +91,9 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
+    #todoをユーザーに紐付け
+    todos = models.ManyToManyField(Todo, blank=True,)
+
 
 
     objects = UserManager()
@@ -108,14 +122,3 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 class User(AbstractUser):
     class Meta(AbstractUser.Meta):
         swappable = "AUTH_USER_MODEL"
-
-
-#todoも加える
-    #要変更
-class Todo(models.Model):
-    name=models.CharField(_('Todo'), max_length=50, blank=True)
-    #is_done=models.BooleanField(_('Todo'), default=False)
-    #owners=models.ManyToManyField(User, )   #on_deleteの引数を指定する。on_delete=models.PROTECT
-
-    def __str__(self):
-        return self.name
