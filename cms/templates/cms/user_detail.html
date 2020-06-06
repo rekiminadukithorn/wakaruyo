@@ -44,12 +44,24 @@
                             <strong>誰かのToDoを追加する</strong>
                         </button>
                     </a>
+                    <a href="{% url 'cms:my_todo_list'  %}"> <!--todo一覧のページへ-->
+                        <button class="button is-small is-info is-inverted is-outlined">
+                            <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
+                            <strong>メインのToDoを設定する</strong>
+                        </button>
+                    </a>
+                    <a href="{% url 'cms:user_list'  %}"> <!--todo一覧のページへ-->
+                        <button class="button is-small is-info is-inverted is-outlined">
+                            <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
+                            <strong>ユーザー一覧</strong>
+                        </button>
+                    </a>
                     {% endif %}
                 </div>
                 <div class="media-right">
                     {% if user.pk == request.user.pk %}
                     <h3 class="subtitle">
-                        {{ user.todos.all }}<!--調べる-->
+                        現在のToDo：{{ user.main_todo }}<!--調べる-->
                     </h3>
                     {% endif %}
                 </div>
@@ -63,6 +75,10 @@
 <section class="section">
     <div class="container">
         <div class="level">
+          <div class="tile is-child box">
+              {{ user.todos.all }}
+          </div>
+          <br>
             <div class="level-left">
                 {% if user.twitter %}
                 <div class="level-item">

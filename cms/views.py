@@ -129,3 +129,32 @@ class TodoAdd(LoginRequiredMixin, TemplateView):
         user = self.request.user
         user.todos.add(todo)
         return context
+
+
+class MyTodoList(ListView):
+    model = Todo
+    context_object_name = "my_todo_list"  # この行で変数名を指定(html内でobject_listを"todo_list"って書けるようになるだけ。)
+    template_name = 'cms/my_todo_list.html'
+    #paginate_by = 10   #1ページに表示する個数を制限できる
+
+    def get_queryset(self):
+        user = self.request.user
+        return user.todos.all()
+
+
+class TodoMain(LoginRequiredMixin, TemplateView):
+    template_name = 'cms/todo_main.html'
+    context_object_name = "my_todo_list"
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # いろいろやる
+        # My ToDo listで選んだToDoをそのUserのmain_todoに加えたい。
+        owner = self.request.user
+        todo = owner.todos.get(**kwargs)
+        context["todo"] = todo
+        #owner.main_todo.update_or_create(todo, defaults=None, **kwargs) #この辺とmodelの問題を解決する必要あり
+        #main_todo = owner.main_todo
+        #main_todo.add(todo)
+        return context

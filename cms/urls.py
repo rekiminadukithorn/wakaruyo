@@ -18,4 +18,6 @@ urlpatterns = [
     path('todo/create/', views.TodoCreate.as_view(), name='todo_create'),
     path('todo/list/', views.TodoList.as_view(), name='todo_list'),
     path('todo/<int:pk>/add/', views.TodoAdd.as_view(), name='todo_add'),
+    path('user/todo/list/', views.MyTodoList.as_view(), name='my_todo_list'),
+    path('todo/<int:pk>/main/', views.TodoMain.as_view(), name='todo_main'),
 ]

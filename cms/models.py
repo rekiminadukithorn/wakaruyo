@@ -24,6 +24,11 @@ class Todo(models.Model):
         return self.name
 
 
+def get_or_create_do_nothing():
+    todo, _ = Todo.objects.get_or_create(name='何もしない')
+    return todo
+
+
 # User-related
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -96,7 +101,9 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
     #todoをユーザーに紐付け
-    todos = models.ManyToManyField(Todo, blank=True,)
+    todos = models.ManyToManyField(Todo, blank=True, related_name='user')
+
+    main_todo = models.ForeignKey(Todo, blank=True, null=True, on_delete=models.SET_DEFAULT, default=get_or_create_do_nothing, related_name='owner')
 
 
 
