@@ -16,6 +16,10 @@ class Todo(models.Model):
     #is_done=models.BooleanField(_('Todo'), default=False)
     #owners=models.ManyToManyField(User, )   #on_deleteの引数を指定する。on_delete=models.PROTECT
 
+    class Meta:
+        verbose_name = _('todo')
+        verbose_name_plural = _('todos')
+
     def __str__(self):
         return self.name
 

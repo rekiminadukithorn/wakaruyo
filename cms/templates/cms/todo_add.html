@@ -17,14 +17,17 @@
 <section class="section">
     <div class="container">
         <div class="tile is-ancestor">
+          {% if user.pk == request.user.pk %}
             <div class="tile is-12 is-vertical is-parent">
-                {% for object in object_list %}
-                <div class="tile is-child box">
-                    <a class="title is-4">{{ user.todos }}</a>
-                    <p>Lorem ipsum dolor sit</p>
-                </div>
-                {% endfor %}
+                「{{ todo }}」を自分のToDoに追加しました！
             </div>
+          {% endif %}
+          <br>
+        </div>
+        <div class="buttons">
+          <a class="button is-info navbar-item" href="{% url 'cms:user_detail' user.pk %}">
+            <strong>マイページへ</strong>
+          </a>
         </div>
     </div>
 </section>

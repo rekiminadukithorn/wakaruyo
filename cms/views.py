@@ -117,9 +117,15 @@ class TodoList(ListView):
 
 class TodoAdd(LoginRequiredMixin, TemplateView):
     template_name = 'cms/todo_add.html'
+    context_object_name = "todo_list"
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # いろいろやる
         # ToDo listで選んだToDoをそのUserのtodosに加えたい。
+        todo = Todo.objects.get(**kwargs)
+        context["todo"] = todo
+        user = self.request.user
+        user.todos.add(todo)
         return context
