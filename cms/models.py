@@ -16,17 +16,17 @@ class Todo(models.Model):
     #is_done=models.BooleanField(_('Todo'), default=False)
     #owners=models.ManyToManyField(User, )   #on_deleteの引数を指定する。on_delete=models.PROTECT
 
-    class Meta:
-        verbose_name = _('todo')
-        verbose_name_plural = _('todos')
+    #class Meta:
+    #    verbose_name = _('todo')
+    #    verbose_name_plural = _('todos')
 
     def __str__(self):
         return self.name
 
 
-def get_or_create_do_nothing():
-    todo, _ = Todo.objects.get_or_create(name='何もしない')
-    return todo
+#def get_or_create_do_nothing():
+#    todo = Todo.objects.get_or_create(name='何もしない')
+#    return todo
 
 
 # User-related
@@ -101,9 +101,10 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     twitter = models.CharField(_('Twitter'), max_length=50, blank=True)
 
     #todoをユーザーに紐付け
-    todos = models.ManyToManyField(Todo, blank=True, related_name='user')
+    todos = models.ManyToManyField(to='Todo', blank=True, related_name='user')
 
-    main_todo = models.ForeignKey(Todo, blank=True, null=True, on_delete=models.SET_DEFAULT, default=get_or_create_do_nothing, related_name='owner')
+    main_todo = models.ForeignKey(to='Todo', blank=True, null=True, on_delete=models.DO_NOTHING, related_name='owner')
+    #main_todo = models.ForeignKey(to='Todo', default=get_or_create_do_nothing, blank=True, null=True, on_delete=models.SET_DEFAULT, related_name='owner')
 
 
 
