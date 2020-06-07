@@ -103,7 +103,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     #todoをユーザーに紐付け
     todos = models.ManyToManyField(Todo, blank=True, related_name='user')
 
-    main_todo = models.ForeignKey(Todo, blank=True, null=True, on_delete=models.SET_DEFAULT, default=get_or_create_do_nothing, related_name='owner')
+    #main_todo = models.ForeignKey(Todo, blank=True, null=True, on_delete=models.SET_DEFAULT, default=get_or_create_do_nothing, related_name='owner')
 
 
 

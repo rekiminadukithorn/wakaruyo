@@ -41,16 +41,17 @@
                 </div>
             </div>
             <div class="field">                
-                <p class="control"> <!--twitterより上で良いの？-->
-                <input type="submit" value="保存" class="button is-success">
-                <input type="hidden" name="next" value="{{ next }}" >
-                </p>
-            
                 <label class="label">Twitter</label>
                 <div class="control has-icons-left">
                     {{ form.twitter }}
                     <span class="icon is-small is-left"><i class="fab fa-twitter"></i></span>
-                </div>           
+                </div> 
+                <br>
+                <p class="control"> 
+                <input type="submit" value="保存" class="button is-success">
+                <input type="hidden" name="next" value="{{ next }}" >
+                </p>
+              
             </div>
         </form>
         <hr>

@@ -4,7 +4,7 @@ DEBUG = False
 
 #アドレスは要変更
 ALLOWED_HOSTS = [
-    'cms-env.eba-qmf4h2vd.us-east-1.elasticbeanstalk.com',
+    'cms-env.eba-xmcmp2bq.us-east-1.elasticbeanstalk.com',
 ]
 
 DATABASES = {

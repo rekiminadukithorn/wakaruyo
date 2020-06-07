@@ -26,11 +26,13 @@
                             <strong>プロフィールを追加する</strong>
                         </button>
                     </a>
-                    <a href="{% url 'cms:todo_update' user.pk %}"> <!--todo更新用のページへ-->
+                    <!--
+                        <a href="{% url 'cms:todo_update' user.pk %}"> 
                         <button class="button is-small is-info is-inverted is-outlined">
                             <span class="icon is-small is-left"><i class="fas fa-user-edit"></i></span>
                             <strong>ToDoを更新する</strong>
                         </button>
+                    -->
                     </a>
                     <a href="{% url 'cms:todo_create'  %}"> <!--todo作成用のページへ-->
                         <button class="button is-small is-info is-inverted is-outlined">
@@ -61,7 +63,7 @@
                 <div class="media-right">
                     {% if user.pk == request.user.pk %}
                     <h3 class="subtitle">
-                        現在のToDo：{{ user.main_todo }}<!--調べる-->
+                        <!--現在のToDo：{{ user.main_todo }}--><!--調べる-->
                     </h3>
                     {% endif %}
                 </div>
@@ -90,7 +92,8 @@
                 {% endif %}
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+        <p>ここにToDoが表示されます
+        </p>
     </div>
 </section>
 {% endblock %}
