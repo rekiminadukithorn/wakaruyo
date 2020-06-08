@@ -156,5 +156,5 @@ class TodoMain(LoginRequiredMixin, TemplateView):
         context["todo"] = todo
         #owner.main_todo.update_or_create(todo, defaults=None, **kwargs) #この辺とmodelの問題を解決する必要あり
         #main_todo = owner.main_todo
-        #main_todo.add(todo)
+        todo.owner.add(owner)
         return context
